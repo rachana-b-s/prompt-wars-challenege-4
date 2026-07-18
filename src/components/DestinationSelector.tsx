@@ -145,7 +145,7 @@ export function DestinationSelector({
         <section aria-labelledby="recent-destinations-heading">
           <h3
             id="recent-destinations-heading"
-            className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1"
+            className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-1"
           >
             Recent
           </h3>
@@ -173,20 +173,20 @@ export function DestinationSelector({
       <section aria-labelledby="zones-list-heading">
         <h3
           id="zones-list-heading"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1"
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-1"
         >
           {isSearching ? 'Search Results' : 'All Destinations'}
         </h3>
 
         {filteredZones.length === 0 ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400 py-2">
+          <p className="text-sm text-gray-600 dark:text-gray-400 py-2">
             No zones found matching &quot;{debouncedQuery}&quot;.
           </p>
         ) : (
-          <div className="flex flex-col gap-2 max-h-64 overflow-y-auto" role="list">
+          <div className="flex flex-col gap-2 max-h-64 overflow-y-auto">
             {categorizedZones.map((category) => (
               <div key={category.label}>
-                <h4 className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-1">
+                <h4 className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                   {category.label}
                 </h4>
                 <ul role="listbox" aria-label={`${category.label} destinations`}>

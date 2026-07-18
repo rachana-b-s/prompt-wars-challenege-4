@@ -21,7 +21,7 @@ export function TabButton({ id, label, isActive, panelId, onClick, variant = 'de
     ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
     : 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400';
 
-  const inactiveClass = 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200';
+  const inactiveClass = 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100';
 
   return (
     <button

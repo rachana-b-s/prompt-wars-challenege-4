@@ -33,7 +33,7 @@ export function FacilityCard({
           <h3 className="text-sm font-medium text-foreground truncate">
             {facility.name}
           </h3>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
             {formatFacilityType(facility.type)}
             {facility.attributes.cuisineType && ` · ${facility.attributes.cuisineType}`}
           </p>
@@ -49,7 +49,7 @@ export function FacilityCard({
           <ClockIcon />
           {facility.queueEstimate} min queue
         </span>
-        <span className="text-gray-400 dark:text-gray-500">
+        <span className="text-gray-600 dark:text-gray-400">
           Zone: {facility.zone}
         </span>
       </div>
@@ -93,7 +93,6 @@ export function FacilityCard({
       <button
         onClick={() => onNavigate(facility.zone)}
         className="mt-2 w-full py-1.5 text-xs font-medium rounded bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800 transition-colors"
-        aria-label={`Navigate to ${facility.name}`}
       >
         Navigate to {facility.zone}
       </button>

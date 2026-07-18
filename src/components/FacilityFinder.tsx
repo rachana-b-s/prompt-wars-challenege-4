@@ -376,7 +376,7 @@ export function FacilityFinder() {
         className="space-y-2"
       >
         {sortedFacilities.length === 0 ? (
-          <p className="text-sm text-gray-500 italic py-4 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400 italic py-4 text-center">
             No facilities match your filters.
           </p>
         ) : (
@@ -389,7 +389,7 @@ export function FacilityFinder() {
               );
               return (
                 <>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
                     Page {currentPage + 1} of {totalPages} ({sortedFacilities.length} results)
                   </p>
                   <ul className="space-y-2" aria-label="Facility results">
@@ -411,7 +411,7 @@ export function FacilityFinder() {
                       >
                         ← Prev
                       </button>
-                      <span className="text-xs text-gray-500">{currentPage + 1} / {totalPages}</span>
+                      <span className="text-xs text-gray-600 dark:text-gray-400">{currentPage + 1} / {totalPages}</span>
                       <button
                         onClick={() => setCurrentPage((p) => Math.min(totalPages - 1, p + 1))}
                         disabled={currentPage >= totalPages - 1}

@@ -48,7 +48,7 @@ function RoutePanelEmpty() {
   return (
     <div className="p-4" role="status" aria-label="No route computed">
       <h2 className="text-lg font-semibold text-foreground mb-2">Route</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-gray-600 dark:text-gray-400">
         Set your location and destination on the map to compute a route.
       </p>
     </div>
@@ -194,7 +194,7 @@ function SummaryItem({
         {icon}
       </span>
       <p className="text-sm font-semibold text-foreground mt-0.5">{value}</p>
-      <p className="text-xs text-gray-500 dark:text-gray-400">{label}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400">{label}</p>
     </div>
   );
 }
@@ -203,9 +203,9 @@ function SummaryItem({
 
 function RouteWarnings({ warnings }: { warnings: RouteWarning[] }) {
   return (
-    <div aria-label="Route warnings" role="list">
-      <h3 className="text-sm font-medium text-foreground mb-2">Warnings</h3>
-      <div className="space-y-1.5">
+    <div aria-label="Route warnings">
+      <p className="text-sm font-medium text-foreground mb-2">Warnings</p>
+      <div className="space-y-1.5" role="list">
         {warnings.map((warning, index) => (
           <WarningBadge key={index} warning={warning} />
         ))}
@@ -346,7 +346,7 @@ function GenAISection({ route }: { route: RouteResult }) {
 
   return (
     <div aria-label="AI route explanation">
-      <h3 className="text-sm font-medium text-foreground mb-2">AI Reasoning</h3>
+      <p className="text-sm font-medium text-foreground mb-2">AI Reasoning</p>
 
       {isLoading && <GenAILoadingSkeleton />}
 
@@ -409,7 +409,7 @@ function GenAIFallbackMessage({
 }) {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-3">
-      <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+      <p className="text-sm text-gray-600 dark:text-gray-400 italic">
         AI explanation temporarily unavailable
       </p>
       {dataPoints && dataPoints.length > 0 && (
@@ -440,16 +440,16 @@ function AlternativeRouteCard({ route, index }: { route: RouteResult; index: num
   return (
     <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3">
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+        <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
           Alternative {index}
         </span>
-        <span className="text-xs text-gray-400 dark:text-gray-500">
+        <span className="text-xs text-gray-600 dark:text-gray-400">
           {route.zonesTraversed} zones
         </span>
       </div>
       <div className="flex items-center gap-3 text-sm">
         <span className="text-foreground font-medium">{timeMinutes} min</span>
-        <span className="text-gray-400 dark:text-gray-500">|</span>
+        <span className="text-gray-500 dark:text-gray-400">|</span>
         <span className="text-gray-600 dark:text-gray-300">{distanceDisplay}</span>
       </div>
       {route.warnings.length > 0 && (

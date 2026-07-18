@@ -245,7 +245,7 @@ function MedicalPanel() {
       <div>
         <h3 className="text-sm font-medium text-foreground mb-2">Medical Facilities</h3>
         {medicalFacilities.length === 0 ? (
-          <p className="text-xs text-gray-500 italic">No medical facilities available.</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 italic">No medical facilities available.</p>
         ) : (
           <ul className="space-y-2" aria-label="Medical facilities">
             {medicalFacilities.map((f) => (
@@ -548,7 +548,7 @@ function AEDPanel() {
       <h3 className="text-sm font-medium text-foreground">AED (Defibrillator) Stations</h3>
 
       {aedStations.length === 0 ? (
-        <p className="text-xs text-gray-500 italic">No AED stations available.</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 italic">No AED stations available.</p>
       ) : (
         <ul className="space-y-2" aria-label="AED stations">
           {aedStations.map((aed) => (
@@ -563,7 +563,7 @@ function AEDPanel() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-foreground">{aed.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
                     Zone: {aed.zone} · Status: {aed.status}
                   </p>
                 </div>
@@ -636,7 +636,7 @@ function MedicalFacilityCard({ facility }: { facility: Facility }) {
               {isMedicalCenter ? 'Medical Center' : 'First Aid'}
             </span>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
             Zone: {facility.zone} · Queue: {facility.queueEstimate} min
           </p>
         </div>
