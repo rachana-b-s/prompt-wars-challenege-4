@@ -20,6 +20,7 @@
  */
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { MapInteractionWrapper } from '@/components/MapInteractionWrapper';
 import { RoutePanel } from '@/components/RoutePanel';
 import { ProfileSetup } from '@/components/ProfileSetup';
@@ -100,7 +101,12 @@ export default function Home() {
       {/* Top header bar with language selector */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
         <h1 className="text-sm font-semibold text-foreground">Stadium Navigator</h1>
-        <LanguageSelector />
+        <div className="flex items-center gap-3">
+          <Link href="/dashboard" className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+            Staff Dashboard
+          </Link>
+          <LanguageSelector />
+        </div>
       </header>
 
       {/* Proactive warnings banner */}

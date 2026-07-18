@@ -52,12 +52,14 @@ export const useFanStore = create<FanState>()(
     (set) => ({
       profile: createDefaultProfile(),
 
+      /** Update one or more top-level profile fields (partial merge). */
       updateProfile: (updates: Partial<FanProfile>) => {
         set((state) => ({
           profile: { ...state.profile, ...updates },
         }));
       },
 
+      /** Update accessibility profile fields (partial merge into nested object). */
       updateAccessibility: (updates: Partial<AccessibilityProfile>) => {
         set((state) => ({
           profile: {
@@ -70,12 +72,14 @@ export const useFanStore = create<FanState>()(
         }));
       },
 
+      /** Set the fan's current zone (used for proximity-based features). */
       setCurrentZone: (zone: ZoneId | undefined) => {
         set((state) => ({
           profile: { ...state.profile, currentZone: zone },
         }));
       },
 
+      /** Add a zone to the front of recent destinations (deduplicates, caps at MAX_RECENT_DESTINATIONS). */
       addRecentDestination: (zone: ZoneId) => {
         set((state) => {
           // Remove duplicate if already in list, then prepend
@@ -89,12 +93,14 @@ export const useFanStore = create<FanState>()(
         });
       },
 
+      /** Set the preferred UI language. */
       setLanguage: (lang: LanguageCode) => {
         set((state) => ({
           profile: { ...state.profile, language: lang },
         }));
       },
 
+      /** Set the fan's team allegiance (affects zone routing for rival separation). */
       setAllegiance: (allegiance: FanAllegiance) => {
         set((state) => ({
           profile: { ...state.profile, allegiance },

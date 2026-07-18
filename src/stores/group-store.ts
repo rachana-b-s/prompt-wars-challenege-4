@@ -49,6 +49,7 @@ export const useGroupStore = create<GroupState>()(
     (set) => ({
       group: createDefaultGroup(),
 
+      /** Add a new member and auto-recompute merged constraint set. */
       addMember: (member: FanGroupMember) => {
         set((state) => {
           const updatedMembers = [...state.group.members, member];
@@ -62,6 +63,7 @@ export const useGroupStore = create<GroupState>()(
         });
       },
 
+      /** Remove a member by ID and recompute constraints (empty group resets to defaults). */
       removeMember: (memberId: string) => {
         set((state) => {
           const updatedMembers = state.group.members.filter(
@@ -80,6 +82,7 @@ export const useGroupStore = create<GroupState>()(
         });
       },
 
+      /** Update a specific member's fields and recompute merged constraints. */
       updateMember: (memberId: string, updates: Partial<FanGroupMember>) => {
         set((state) => {
           const updatedMembers = state.group.members.map((m) =>
@@ -95,6 +98,7 @@ export const useGroupStore = create<GroupState>()(
         });
       },
 
+      /** Remove all members and reset constraints to defaults. */
       clearGroup: () => {
         set((state) => ({
           group: {

@@ -13,7 +13,7 @@ AI-powered accessible navigation for FIFA World Cup 2026 stadiums.
 ## Approach and Logic
 
 ### Core Problem
-Navigating a 80,000+ capacity stadium during a live event is challenging for anyone, but especially for fans with accessibility needs, opposing team allegiances, or families with children. Existing solutions lack real-time crowd awareness, accessibility-first routing, and AI-powered contextual guidance.
+Navigating a 80,000+ capacity stadium during a live event is challenging for anyone, but especially for fans with accessibility needs, opposing team allegiances, or families with children. Existing solutions lack real-time crowd awareness, accessibility-first routing, and AI-powered contextual guidance. Beyond fans, organizers and venue staff need real-time situational awareness — the Staff Dashboard at `/dashboard` serves this persona with crowd density metrics, SOS alert monitoring, and AI-powered crowd flow recommendations.
 
 ### Technical Approach
 
@@ -45,6 +45,7 @@ Navigating a 80,000+ capacity stadium during a live event is challenging for any
 4. Route computes instantly via client-side A* → path highlights on map with directional arrows
 5. Route tab shows distance, time, warnings, and AI explanation (loads async)
 6. Fan can configure accessibility profile, allegiance, language at any time — route recomputes automatically
+7. **Staff Dashboard** — Visit `/dashboard` for the organizer/staff view with crowd metrics, density tables, and SOS alerts
 
 ### Architecture
 ```
@@ -76,6 +77,7 @@ Navigating a 80,000+ capacity stadium during a live event is challenging for any
 | Data upload | JSON + CSV upload with Zod schema validation and referential integrity checks |
 | Multilingual | 8 languages with culturally-adapted AI tone (formal for Japanese, informal for Portuguese) |
 | Group navigation | Add members with individual profiles → auto-merged constraints → weakest-link routing |
+| Staff dashboard | Real-time crowd density overview, SOS alert feed, capacity metrics, AI crowd flow recommendations for organizers/staff |
 
 ---
 
@@ -116,7 +118,7 @@ Navigating a 80,000+ capacity stadium during a live event is challenging for any
 - BFS-based facility proximity uses lazy computation
 
 ### Testing
-- **322 tests** across 20 test files
+- **334 tests** across 22 test files
 - **26 property-based tests** (fast-check) validating formal correctness invariants
 - Unit tests for constraint solver, route engine, crowd monitor, facility registry
 - API route tests with mocked GenAI responses
@@ -150,7 +152,7 @@ npm run dev                        # Open http://localhost:3000
 ```bash
 npm run dev        # Development server
 npm run build      # Production build
-npm run test:run   # Run all 322 tests
+npm run test:run   # Run all 334 tests
 npm test           # Tests in watch mode
 npm run lint       # ESLint
 ```
