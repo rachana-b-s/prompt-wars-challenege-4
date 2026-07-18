@@ -70,6 +70,7 @@ export const HAPTIC_PATTERNS: Record<string, number[]> = {
 export function VisualAlert({ message, severity, visible, onDismiss }: VisualAlertProps) {
   const [isFlashing, setIsFlashing] = useState(false);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (visible) {
       setIsFlashing(true);
@@ -78,6 +79,7 @@ export function VisualAlert({ message, severity, visible, onDismiss }: VisualAle
     }
     setIsFlashing(false);
   }, [visible, message]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!visible) return null;
 

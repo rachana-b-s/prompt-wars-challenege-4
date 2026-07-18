@@ -32,6 +32,7 @@ import { DestinationSelector } from '@/components/DestinationSelector';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ScreenReaderRoute } from '@/components/ScreenReaderRoute';
 import { SimpleRouteSteps } from '@/components/SimpleRouteSteps';
+import { TabButton } from '@/components/ui';
 import { useProactiveWarnings } from '@/hooks/useProactiveWarnings';
 import { useFanStore } from '@/stores/fan-store';
 import { useStadiumStore } from '@/stores/stadium-store';
@@ -89,15 +90,16 @@ export default function Home() {
   };
 
   return (
-    <ErrorBoundary>
-      {/* Skip-to-content link for keyboard users */}
+    <>
+      {/* Skip-to-content link — outside ErrorBoundary to avoid aria-hidden conflicts */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded focus:shadow-lg focus:outline-2 focus:outline-blue-600"
+        className="fixed top-0 left-0 z-[100] px-4 py-2 bg-white text-black rounded shadow-lg -translate-y-full focus:translate-y-2 focus:outline-2 focus:outline-blue-600 transition-transform"
       >
         Skip to main content
       </a>
 
+      <ErrorBoundary>
       {/* Top header bar with language selector */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
         <h1 className="text-sm font-semibold text-foreground">Stadium Navigator</h1>
@@ -136,7 +138,6 @@ export default function Home() {
       <main
         id="main-content"
         className="flex-1 flex flex-col md:flex-row overflow-hidden"
-        role="main"
         aria-label="Smart Stadium Fan Navigator"
         style={{ height: 'calc(100vh - 49px)' }}
       >
@@ -271,40 +272,8 @@ export default function Home() {
         </aside>
       </main>
     </ErrorBoundary>
+    </>
   );
 }
 
-/**
- * Accessible tab button component.
- */
-function TabButton({
-  id,
-  label,
-  isActive,
-  panelId,
-  onClick,
-}: {
-  id: string;
-  label: string;
-  isActive: boolean;
-  panelId: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      id={id}
-      role="tab"
-      aria-selected={isActive}
-      aria-controls={panelId}
-      tabIndex={isActive ? 0 : -1}
-      onClick={onClick}
-      className={`flex-shrink-0 px-3 py-3 text-sm font-medium transition-colors focus:outline-2 focus:outline-blue-600 focus:outline-offset-[-2px] ${
-        isActive
-          ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400'
-          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
+

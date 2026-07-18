@@ -20,7 +20,8 @@ import type { FanProfile } from '@/types/fan';
 
 // --- Test Helpers ---
 
-const emptyDensityMap: DensityMap = {};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _emptyDensityMap: DensityMap = {};
 
 /**
  * Get all zone IDs from the synthetic stadium.

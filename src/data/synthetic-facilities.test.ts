@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { syntheticFacilities } from './synthetic-facilities';
-import { Facility, FacilityType } from '../types/facility';
+import { FacilityType } from '../types/facility';
 
 function countByType(type: FacilityType): number {
   return syntheticFacilities.filter((f) => f.type === type).length;

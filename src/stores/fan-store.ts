@@ -8,6 +8,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { ROUTE_CONSTANTS } from '@/constants';
 import type {
   FanProfile,
   AccessibilityProfile,
@@ -17,7 +18,7 @@ import type {
 import type { ZoneId } from '@/types/stadium';
 
 /** Maximum number of recent destinations to retain */
-const MAX_RECENT_DESTINATIONS = 5;
+const MAX_RECENT_DESTINATIONS = ROUTE_CONSTANTS.MAX_RECENT_DESTINATIONS;
 
 export interface FanState {
   profile: FanProfile;

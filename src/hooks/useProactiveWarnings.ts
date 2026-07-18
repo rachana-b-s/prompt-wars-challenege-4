@@ -79,13 +79,13 @@ export function useProactiveWarnings(
   } = options;
 
   const [warnings, setWarnings] = useState<ProactiveWarning[]>([]);
-  const dwellStartRef = useRef<number>(Date.now());
+  const dwellStartRef = useRef<number>(0);
   const lastZoneRef = useRef<string | undefined>(currentZone);
   const lastWarningTimeRef = useRef<number>(0);
 
-  // Reset dwell timer when zone changes
+  // Reset dwell timer when zone changes (or initialize on first render)
   useEffect(() => {
-    if (currentZone !== lastZoneRef.current) {
+    if (dwellStartRef.current === 0 || currentZone !== lastZoneRef.current) {
       dwellStartRef.current = Date.now();
       lastZoneRef.current = currentZone;
     }

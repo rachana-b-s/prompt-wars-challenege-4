@@ -96,9 +96,12 @@ Navigating a 80,000+ capacity stadium during a live event is challenging for any
 
 ### Code Quality
 - TypeScript strict mode throughout
+- Zero lint errors, zero warnings (`npm run lint` passes clean)
 - Consistent functional patterns (pure functions for engine/services, hooks for React)
-- Barrel exports, clear module boundaries
-- Components follow single-responsibility principle
+- Centralized constants (no magic numbers — all config in `src/constants/`)
+- Shared UI component library (`src/components/ui/` — TabButton, StatusBadge)
+- Barrel exports for all modules (components, hooks, services, stores)
+- Components follow single-responsibility principle (FacilityCard, RouteOverlay extracted)
 - Zustand stores with persist middleware for session continuity
 
 ### Security
@@ -108,6 +111,8 @@ Navigating a 80,000+ capacity stadium during a live event is challenging for any
 - API routes validate request bodies before processing
 - GenAI responses are parsed and type-checked before use
 - SOS endpoint validates all required fields
+- Error responses sanitized — internal error details logged server-side only, generic messages returned to client
+- No sensitive data in client bundles (API keys accessed only in server-side route handlers)
 
 ### Efficiency
 - Client-side A* with min-heap priority queue (O(E log V) — instant for 30 zones)

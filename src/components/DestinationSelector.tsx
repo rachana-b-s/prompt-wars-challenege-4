@@ -10,6 +10,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { useStadiumStore } from '@/stores/stadium-store';
 import { useFanStore } from '@/stores/fan-store';
+import { UI_CONSTANTS } from '@/constants';
 import type { Zone, ZoneType } from '@/types/stadium';
 
 /** Category definition for grouping zones */
@@ -29,7 +30,7 @@ const ZONE_CATEGORIES: ZoneCategory[] = [
 ];
 
 /** Debounce delay for search input (must be <500ms per Req 11.5) */
-const SEARCH_DEBOUNCE_MS = 200;
+const SEARCH_DEBOUNCE_MS = UI_CONSTANTS.SEARCH_DEBOUNCE_MS;
 
 export interface DestinationSelectorProps {
   /** Called when the user selects a destination zone */

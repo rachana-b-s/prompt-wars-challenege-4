@@ -332,13 +332,17 @@ function GenAISection({ route }: { route: RouteResult }) {
   }, [route, profile, densityMap]);
 
   // Fetch explanation when route changes
+  const routePathKey = route.path.join(',');
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (route.status === 'found') {
       setExplanation(null);
       setHasAttempted(false);
       fetchExplanation();
     }
-  }, [route.path.join(','), fetchExplanation]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [routePathKey, fetchExplanation]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   return (
     <div aria-label="AI route explanation">

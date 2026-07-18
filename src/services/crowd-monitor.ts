@@ -10,6 +10,7 @@
 
 import type { ZoneId } from '@/types/stadium';
 import type { DensityMap, DensityEntry, DensityLevel, DensityUpdate } from '@/types/crowd';
+import { ROUTE_CONSTANTS } from '@/constants';
 
 /**
  * Get the density entry for a specific zone.
@@ -45,7 +46,7 @@ export function updateDensity(map: DensityMap, update: DensityUpdate): DensityMa
  * Apply multiple density updates, returning a new DensityMap.
  */
 export function bulkUpdate(map: DensityMap, updates: DensityUpdate[]): DensityMap {
-  let result = { ...map };
+  const result = { ...map };
   for (const update of updates) {
     const timestamp = update.timestamp ?? Date.now();
     result[update.zoneId] = {
@@ -65,7 +66,7 @@ export function bulkUpdate(map: DensityMap, updates: DensityUpdate[]): DensityMa
 export function isStale(entry: DensityEntry | undefined, now?: number): boolean {
   if (!entry) return true;
   const currentTime = now ?? Date.now();
-  return currentTime - entry.lastUpdated > 60_000;
+  return currentTime - entry.lastUpdated > ROUTE_CONSTANTS.DENSITY_STALE_THRESHOLD_MS;
 }
 
 /**

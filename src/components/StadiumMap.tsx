@@ -9,11 +9,12 @@
  * Requirements: 9.1, 9.2, 9.4, 9.5, 9.6, 9.7
  */
 
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useRef, useState, useCallback, useEffect, useMemo } from 'react';
 import { useStadiumStore } from '@/stores/stadium-store';
 import { useCrowdStore } from '@/stores/crowd-store';
 import { useFanStore } from '@/stores/fan-store';
 import { RouteOverlay } from '@/components/RouteOverlay';
+import { UI_CONSTANTS } from '@/constants';
 import type { Zone } from '@/types/stadium';
 import type { DensityLevel } from '@/types/crowd';
 
@@ -44,8 +45,8 @@ const DENSITY_OVERLAY_COLORS: Record<DensityLevel, string> = {
 };
 
 /** Minimum/maximum zoom scale */
-const MIN_SCALE = 1;
-const MAX_SCALE = 4;
+const MIN_SCALE = UI_CONSTANTS.MAP_MIN_SCALE;
+const MAX_SCALE = UI_CONSTANTS.MAP_MAX_SCALE;
 const ZOOM_SENSITIVITY = 0.001;
 
 interface ViewTransform {
@@ -99,7 +100,7 @@ function getZoneBaseColor(zone: Zone): string {
 }
 
 /** Minimum pointer movement (px) before a gesture is treated as a drag/pan */
-const DRAG_THRESHOLD = 5;
+const DRAG_THRESHOLD = UI_CONSTANTS.DRAG_THRESHOLD_PX;
 
 export function StadiumMap({ onZoneClick, highlightedPath = [] }: StadiumMapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -119,7 +120,7 @@ export function StadiumMap({ onZoneClick, highlightedPath = [] }: StadiumMapProp
   const densityMap = useCrowdStore((state) => state.densityMap);
   const currentZone = useFanStore((state) => state.profile.currentZone);
 
-  const zones = graph?.zones ?? [];
+  const zones = useMemo(() => graph?.zones ?? [], [graph]);
   const highlightedSet = new Set(highlightedPath);
 
   // --- Zoom via scroll wheel ---

@@ -8,7 +8,7 @@
  * Requirements: Crowd management, operational intelligence, real-time decision support
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useSyncExternalStore } from 'react';
 import { useStadiumStore } from '@/stores/stadium-store';
 import { useCrowdStore } from '@/stores/crowd-store';
 import Link from 'next/link';
@@ -20,11 +20,18 @@ interface SOSAlertData {
   timestamp: number;
 }
 
+const emptySubscribe = () => () => {};
+
+function useHydrated(): boolean {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
+
 export default function DashboardPage() {
   const graph = useStadiumStore((s) => s.graph);
   const densityMap = useCrowdStore((s) => s.densityMap);
   const [alerts, setAlerts] = useState<SOSAlertData[]>([]);
-  const [lastRefresh, setLastRefresh] = useState(Date.now());
+  const [lastRefresh, setLastRefresh] = useState(() => Date.now());
+  const mounted = useHydrated();
 
   const zones = graph?.zones ?? [];
 
@@ -40,11 +47,13 @@ export default function DashboardPage() {
     setLastRefresh(Date.now());
   }, []);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     fetchAlerts();
     const interval = setInterval(fetchAlerts, 10000); // refresh every 10s
     return () => clearInterval(interval);
   }, [fetchAlerts]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Compute stats
   const totalCapacity = zones.reduce((sum, z) => sum + z.capacity, 0);
@@ -53,6 +62,22 @@ export default function DashboardPage() {
     : 0;
   const highDensityZones = zones.filter((z) => (densityMap[z.id]?.density ?? 0) > 70);
   const criticalZones = zones.filter((z) => (densityMap[z.id]?.density ?? 0) > 85);
+
+  if (!mounted) {
+    return (
+      <main className="min-h-screen bg-gray-50 dark:bg-gray-950 p-6" role="main" aria-label="Staff Dashboard">
+        <div className="max-w-7xl mx-auto space-y-6 animate-pulse">
+          <div className="h-8 bg-gray-200 dark:bg-gray-800 rounded w-48" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-20 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+            ))}
+          </div>
+          <div className="h-64 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 p-6" role="main" aria-label="Staff Dashboard">

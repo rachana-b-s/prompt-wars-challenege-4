@@ -16,6 +16,8 @@ import { useFanStore } from '@/stores/fan-store';
 import { useRouteStore } from '@/stores/route-store';
 import { search, sortFacilities } from '@/services/facility-registry';
 import { FacilityCard } from './FacilityCard';
+import { TabButton } from '@/components/ui';
+import { UI_CONSTANTS } from '@/constants';
 import type { FacilityType, DietaryFilter } from '@/types/facility';
 import type { SortBy } from '@/services/facility-registry';
 
@@ -58,7 +60,7 @@ export function FacilityFinder() {
   const [sortBy, setSortBy] = useState<SortBy>('queue');
   const [restroomType, setRestroomType] = useState<FacilityType | undefined>(undefined);
   const [currentPage, setCurrentPage] = useState(0);
-  const PAGE_SIZE = 4;
+  const PAGE_SIZE = UI_CONSTANTS.FACILITY_PAGE_SIZE;
 
   const facilities = useFacilityStore((s) => s.facilities);
   const graph = useStadiumStore((s) => s.graph);
@@ -86,11 +88,13 @@ export function FacilityFinder() {
   }, [setDestination, addRecentDestination]);
 
   // Show error feedback when route comes back as not_found
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (routeStatus === 'not_found') {
       setNavFeedback({ type: 'error', message: 'No route available. Try adjusting your accessibility or allegiance settings in the Profile tab.' });
     }
   }, [routeStatus]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Filter facilities based on active tab and filters
   const filteredFacilities = useMemo(() => {
@@ -163,9 +167,11 @@ export function FacilityFinder() {
   }, [facilities]);
 
   // Reset pagination when filters change
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     setCurrentPage(0);
   }, [activeTab, selectedDietary, cuisineFilter, kidFriendlyOnly, maxQueue, restroomType, sortBy]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const toggleDietary = (filter: DietaryFilter) => {
     setSelectedDietary((prev) =>
@@ -180,33 +186,37 @@ export function FacilityFinder() {
       {/* Category Tabs */}
       <nav aria-label="Facility categories">
         <div role="tablist" className="flex gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-          <CategoryTab
+          <TabButton
             id="facility-tab-food"
             label="Food"
             isActive={activeTab === 'food'}
             panelId="facility-panel-food"
             onClick={() => setActiveTab('food')}
+            variant="compact"
           />
-          <CategoryTab
+          <TabButton
             id="facility-tab-restrooms"
             label="Restrooms"
             isActive={activeTab === 'restrooms'}
             panelId="facility-panel-restrooms"
             onClick={() => setActiveTab('restrooms')}
+            variant="compact"
           />
-          <CategoryTab
+          <TabButton
             id="facility-tab-medical"
             label="Medical"
             isActive={activeTab === 'medical'}
             panelId="facility-panel-medical"
             onClick={() => setActiveTab('medical')}
+            variant="compact"
           />
-          <CategoryTab
+          <TabButton
             id="facility-tab-comfort"
             label="Comfort"
             isActive={activeTab === 'comfort'}
             panelId="facility-panel-comfort"
             onClick={() => setActiveTab('comfort')}
+            variant="compact"
           />
         </div>
       </nav>
@@ -423,39 +433,6 @@ export function FacilityFinder() {
 
 
 
-/**
- * Accessible category tab button.
- */
-function CategoryTab({
-  id,
-  label,
-  isActive,
-  panelId,
-  onClick,
-}: {
-  id: string;
-  label: string;
-  isActive: boolean;
-  panelId: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      id={id}
-      role="tab"
-      aria-selected={isActive}
-      aria-controls={panelId}
-      tabIndex={isActive ? 0 : -1}
-      onClick={onClick}
-      className={`flex-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus:outline-2 focus:outline-blue-600 focus:outline-offset-[-2px] ${
-        isActive
-          ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
-          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
+
 
 

@@ -14,6 +14,7 @@ import { useStadiumStore } from '@/stores/stadium-store';
 import { useCrowdStore } from '@/stores/crowd-store';
 import { getMedicalTriage } from '@/services/genai-client';
 import { computeSOSRoute } from '@/engine/route-engine';
+import { TabButton } from '@/components/ui';
 import type { TriageResponse } from '@/types/emergency';
 import type { RouteResult } from '@/types/route';
 import type { Facility } from '@/types/facility';
@@ -36,6 +37,7 @@ export function EmergencyPanel() {
             isActive={activeTab === 'sos'}
             panelId="emergency-panel-sos"
             onClick={() => setActiveTab('sos')}
+            variant="compact"
           />
           <TabButton
             id="emergency-tab-medical"
@@ -43,6 +45,7 @@ export function EmergencyPanel() {
             isActive={activeTab === 'medical'}
             panelId="emergency-panel-medical"
             onClick={() => setActiveTab('medical')}
+            variant="compact"
           />
           <TabButton
             id="emergency-tab-lost-child"
@@ -50,6 +53,7 @@ export function EmergencyPanel() {
             isActive={activeTab === 'lost_child'}
             panelId="emergency-panel-lost-child"
             onClick={() => setActiveTab('lost_child')}
+            variant="compact"
           />
           <TabButton
             id="emergency-tab-aed"
@@ -57,6 +61,7 @@ export function EmergencyPanel() {
             isActive={activeTab === 'aed'}
             panelId="emergency-panel-aed"
             onClick={() => setActiveTab('aed')}
+            variant="compact"
           />
         </div>
       </nav>
@@ -610,37 +615,7 @@ function AEDPanel() {
 
 // === Helper Components ===
 
-function TabButton({
-  id,
-  label,
-  isActive,
-  panelId,
-  onClick,
-}: {
-  id: string;
-  label: string;
-  isActive: boolean;
-  panelId: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      id={id}
-      role="tab"
-      aria-selected={isActive}
-      aria-controls={panelId}
-      tabIndex={isActive ? 0 : -1}
-      onClick={onClick}
-      className={`flex-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus:outline-2 focus:outline-blue-600 focus:outline-offset-[-2px] ${
-        isActive
-          ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
-          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
+// === Helper Components ===
 
 function MedicalFacilityCard({ facility }: { facility: Facility }) {
   const isMedicalCenter = facility.type === 'medical_center';

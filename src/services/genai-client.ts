@@ -12,6 +12,7 @@
 
 import type { TriageResponse } from '@/types/emergency';
 import type { RouteResult } from '@/types/route';
+import { ROUTE_CONSTANTS } from '@/constants';
 
 // --- Public Interfaces ---
 
@@ -81,7 +82,7 @@ export interface ProactiveWarningParams {
 
 // --- Constants ---
 
-const TIMEOUT_MS = 5000;
+const TIMEOUT_MS = ROUTE_CONSTANTS.GENAI_TIMEOUT_MS;
 const FALLBACK_MESSAGE = 'AI explanation temporarily unavailable';
 
 // --- Helper Functions ---

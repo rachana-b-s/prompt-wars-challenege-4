@@ -10,7 +10,7 @@ import { computeRoute, computeGroupRoute, findAlternatives, computeSOSRoute } fr
 import type { StadiumGraph, Zone, GraphEdge } from '@/types/stadium';
 import type { RouteRequest, GroupRouteRequest } from '@/types/route';
 import type { DensityMap } from '@/types/crowd';
-import type { FanProfile, FanGroup, GroupConstraintSet } from '@/types/fan';
+import type { FanProfile, FanGroup } from '@/types/fan';
 
 // --- Test Helpers ---
 

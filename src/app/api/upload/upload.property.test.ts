@@ -61,7 +61,8 @@ function validZoneArb(id: string, type: string, allegiance: string) {
 }
 
 /** Generate a valid edge between two zones */
-function validEdgeArb(id: string, source: string, target: string) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function _validEdgeArb(id: string, source: string, target: string) {
   return fc.record({
     id: fc.constant(id),
     source: fc.constant(source),

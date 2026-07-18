@@ -112,7 +112,7 @@ export function ZoneInfoPanel({
       {/* Facilities */}
       {facilities.length > 0 && (
         <div className="mb-4">
-          <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
             Facilities ({facilities.length})
           </h4>
           <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-0.5 max-h-24 overflow-y-auto">

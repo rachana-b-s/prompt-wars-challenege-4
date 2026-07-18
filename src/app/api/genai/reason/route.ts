@@ -277,12 +277,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Generic GenAI error — include details for debugging
+    // Log full error server-side for debugging
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     console.error('[GenAI Reason] Error:', errorMessage);
+    // Return generic message to client (don't leak internal error details)
     return NextResponse.json(
       {
-        error: `Failed to generate route explanation: ${errorMessage}`,
+        error: 'Failed to generate route explanation. Please try again later.',
       },
       { status: 500 }
     );
