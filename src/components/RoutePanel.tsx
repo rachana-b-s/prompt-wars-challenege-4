@@ -80,14 +80,14 @@ function RoutePanelNoRoute({ nearestReachable }: { nearestReachable?: string }) 
         <p className="text-sm text-red-700 dark:text-red-300 font-medium">
           Route unavailable
         </p>
-        <p className="text-sm text-red-600 dark:text-red-400 mt-1">
+        <p className="text-sm text-red-700 dark:text-red-400 mt-1">
           No valid route exists to the selected destination.
         </p>
-        <p className="text-sm text-red-600 dark:text-red-400 mt-1">
+        <p className="text-sm text-red-700 dark:text-red-400 mt-1">
           This may be due to your accessibility or allegiance settings. Try adjusting in the Profile tab.
         </p>
         {nearestReachable && (
-          <p className="text-sm text-red-600 dark:text-red-400 mt-2">
+          <p className="text-sm text-red-700 dark:text-red-400 mt-2">
             Nearest reachable alternative: <strong>{nearestReachable}</strong>
           </p>
         )}
@@ -249,7 +249,7 @@ function getWarningConfig(type: RouteWarning['type']): {
         label: 'Crowded',
         bgClass: 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800',
         labelClass: 'text-red-700 dark:text-red-300',
-        textClass: 'text-red-600 dark:text-red-400',
+        textClass: 'text-red-700 dark:text-red-400',
       };
     case 'sensory_trigger':
       return {
@@ -449,7 +449,7 @@ function AlternativeRouteCard({ route, index }: { route: RouteResult; index: num
       </div>
       <div className="flex items-center gap-3 text-sm">
         <span className="text-foreground font-medium">{timeMinutes} min</span>
-        <span className="text-gray-500 dark:text-gray-400">|</span>
+        <span className="text-gray-600 dark:text-gray-400">|</span>
         <span className="text-gray-600 dark:text-gray-300">{distanceDisplay}</span>
       </div>
       {route.warnings.length > 0 && (

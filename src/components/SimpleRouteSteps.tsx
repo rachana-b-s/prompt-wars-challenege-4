@@ -50,7 +50,7 @@ export function SimpleRouteSteps({ segments, zoneNames }: SimpleRouteStepsProps)
   if (segments.length === 0) {
     return (
       <div className="p-4 text-center" role="status">
-        <p className="text-lg text-gray-500 dark:text-gray-400">
+        <p className="text-lg text-gray-600 dark:text-gray-400">
           No directions yet. Pick where you want to go!
         </p>
       </div>
@@ -75,7 +75,7 @@ export function SimpleRouteSteps({ segments, zoneNames }: SimpleRouteStepsProps)
           Your Directions
         </h3>
         <span
-          className="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+          className="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
           aria-label={`Showing steps ${startIndex + 1} to ${endIndex} of ${totalSteps}`}
         >
           {startIndex + 1}–{endIndex} of {totalSteps}

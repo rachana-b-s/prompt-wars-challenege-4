@@ -24,7 +24,7 @@ export function LanguageSelector() {
     <div className="flex items-center gap-2">
       <label
         htmlFor="language-selector"
-        className="text-xs text-gray-500 dark:text-gray-400 sr-only"
+        className="text-xs text-gray-600 dark:text-gray-400 sr-only"
       >
         Language
       </label>

@@ -407,7 +407,7 @@ export function FacilityFinder() {
                       <button
                         onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
                         disabled={currentPage === 0}
-                        className="px-3 py-1.5 text-xs font-medium rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-40"
+                        className="px-3 py-1.5 text-xs font-medium rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         ← Prev
                       </button>
@@ -415,7 +415,7 @@ export function FacilityFinder() {
                       <button
                         onClick={() => setCurrentPage((p) => Math.min(totalPages - 1, p + 1))}
                         disabled={currentPage >= totalPages - 1}
-                        className="px-3 py-1.5 text-xs font-medium rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-40"
+                        className="px-3 py-1.5 text-xs font-medium rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         Next →
                       </button>

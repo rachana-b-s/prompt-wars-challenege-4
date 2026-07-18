@@ -256,7 +256,7 @@ export function GenAIUnavailableNotice() {
       aria-live="polite"
       className="flex items-center gap-2 px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md"
     >
-      <span className="text-sm text-gray-500 dark:text-gray-400 italic">
+      <span className="text-sm text-gray-600 dark:text-gray-400 italic">
         AI explanation temporarily unavailable
       </span>
     </div>

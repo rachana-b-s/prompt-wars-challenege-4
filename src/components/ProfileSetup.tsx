@@ -87,7 +87,7 @@ export function ProfileSetup() {
         <legend className="text-base font-semibold text-foreground mb-2">
           Accessibility Needs
         </legend>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
           Select all that apply. You can update these at any time.
         </p>
         <div className="space-y-2">
@@ -109,7 +109,7 @@ export function ProfileSetup() {
                 </span>
                 <span
                   id={`desc-${option.value}`}
-                  className="text-xs text-gray-500 dark:text-gray-400"
+                  className="text-xs text-gray-600 dark:text-gray-400"
                 >
                   {option.description}
                 </span>
@@ -136,7 +136,7 @@ export function ProfileSetup() {
             <span className="text-sm font-medium text-foreground">
               I have a companion
             </span>
-            <span id="companion-desc" className="text-xs text-gray-500 dark:text-gray-400">
+            <span id="companion-desc" className="text-xs text-gray-600 dark:text-gray-400">
               A sighted or hearing companion who provides environmental guidance
             </span>
           </span>
@@ -148,7 +148,7 @@ export function ProfileSetup() {
         <legend className="text-base font-semibold text-foreground mb-2">
           Allergens
         </legend>
-        <label htmlFor="allergen-input" className="block text-xs text-gray-500 dark:text-gray-400 mb-1">
+        <label htmlFor="allergen-input" className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
           Enter allergens separated by commas (e.g., nuts, dairy, gluten)
         </label>
         <input
@@ -160,7 +160,7 @@ export function ProfileSetup() {
           className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-foreground placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           aria-describedby="allergen-hint"
         />
-        <p id="allergen-hint" className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+        <p id="allergen-hint" className="mt-1 text-xs text-gray-600 dark:text-gray-400">
           Food stalls handling these allergens will be flagged with a warning.
         </p>
       </fieldset>
@@ -170,7 +170,7 @@ export function ProfileSetup() {
         <legend className="text-base font-semibold text-foreground mb-2">
           Fan Allegiance
         </legend>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+        <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
           Routes will avoid opposing fan zones for your safety.
         </p>
         <div className="space-y-2">
@@ -200,7 +200,7 @@ export function ProfileSetup() {
         <legend className="text-base font-semibold text-foreground mb-2">
           Language
         </legend>
-        <label htmlFor="language-select" className="block text-xs text-gray-500 dark:text-gray-400 mb-1">
+        <label htmlFor="language-select" className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
           Navigation instructions and AI explanations will use this language.
         </label>
         <select

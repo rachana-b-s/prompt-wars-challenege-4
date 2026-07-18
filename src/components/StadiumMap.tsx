@@ -322,7 +322,7 @@ export function StadiumMap({ onZoneClick, highlightedPath = [] }: StadiumMapProp
 
   if (!graph) {
     return (
-      <div className="flex items-center justify-center h-full text-gray-500" role="status">
+      <div className="flex items-center justify-center h-full text-gray-600 dark:text-gray-400" role="status">
         <p>Loading stadium map...</p>
       </div>
     );

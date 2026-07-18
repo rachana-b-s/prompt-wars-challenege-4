@@ -175,7 +175,7 @@ export function GroupManager() {
 
       {/* Member List */}
       {group.members.length === 0 && !showAddForm && (
-        <p className="text-sm text-gray-500 mb-3">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
           No group members yet. Add members to enable group navigation.
         </p>
       )}
@@ -307,7 +307,7 @@ export function GroupManager() {
                 <span>
                   <span className="font-medium">Step-free required</span>
                   {influences['Step-free required'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to {influences['Step-free required'].join(', ')})
                     </span>
                   )}
@@ -322,7 +322,7 @@ export function GroupManager() {
                     Max distance: {group.constraintSet.maxWalkingDistance}m
                   </span>
                   {influences['Max walking distance'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to {influences['Max walking distance'].join(', ')})
                     </span>
                   )}
@@ -335,7 +335,7 @@ export function GroupManager() {
                 <span>
                   <span className="font-medium">Avoid crowds</span>
                   {influences['Avoid crowds'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to {influences['Avoid crowds'].join(', ')})
                     </span>
                   )}
@@ -348,7 +348,7 @@ export function GroupManager() {
                 <span>
                   <span className="font-medium">Prefer quiet routes</span>
                   {influences['Prefer quiet routes'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to {influences['Prefer quiet routes'].join(', ')})
                     </span>
                   )}
@@ -363,7 +363,7 @@ export function GroupManager() {
                     Child safety zones excluded
                   </span>
                   {influences['Child safety zones excluded'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to{' '}
                       {influences['Child safety zones excluded'].join(', ')})
                     </span>
@@ -377,7 +377,7 @@ export function GroupManager() {
                 <span>
                   <span className="font-medium">Pregnancy routing</span>
                   {influences['Pregnancy routing'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to {influences['Pregnancy routing'].join(', ')})
                     </span>
                   )}
@@ -393,7 +393,7 @@ export function GroupManager() {
                     {group.constraintSet.excludedZoneTypes.join(', ')}
                   </span>
                   {influences['Avoid sensory triggers'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to{' '}
                       {influences['Avoid sensory triggers'].join(', ')})
                     </span>
@@ -409,7 +409,7 @@ export function GroupManager() {
                     Allergens: {group.constraintSet.allergens.join(', ')}
                   </span>
                   {influences['Allergen restrictions'] && (
-                    <span className="text-gray-500 ml-1">
+                    <span className="text-gray-600 dark:text-gray-400 ml-1">
                       (due to{' '}
                       {influences['Allergen restrictions'].join(', ')})
                     </span>

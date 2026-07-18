@@ -86,12 +86,12 @@ export default function DashboardPage() {
         <header className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Staff Dashboard</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Real-time operational intelligence · {graph?.metadata.name ?? 'Stadium'}
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-600 dark:text-gray-400">
               Last refresh: {new Date(lastRefresh).toLocaleTimeString()}
             </span>
             <Link href="/" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
@@ -123,7 +123,7 @@ export default function DashboardPage() {
                 </span>
               ))}
             </div>
-            <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+            <p className="mt-2 text-xs text-red-700 dark:text-red-400">
               Recommendation: Consider redirecting foot traffic from these zones to nearby alternatives.
             </p>
           </section>
@@ -136,7 +136,7 @@ export default function DashboardPage() {
             <div className="overflow-y-auto max-h-96">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
+                  <tr className="text-left text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
                     <th className="pb-2 font-medium">Zone</th>
                     <th className="pb-2 font-medium">Type</th>
                     <th className="pb-2 font-medium">Density</th>
@@ -152,7 +152,7 @@ export default function DashboardPage() {
                       return (
                         <tr key={zone.id}>
                           <td className="py-2 text-gray-800 dark:text-gray-200">{zone.name}</td>
-                          <td className="py-2 text-gray-500 dark:text-gray-400 capitalize">{zone.type.replace('_', ' ')}</td>
+                          <td className="py-2 text-gray-600 dark:text-gray-400 capitalize">{zone.type.replace('_', ' ')}</td>
                           <td className="py-2">
                             <div className="flex items-center gap-2">
                               <div className="w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -185,7 +185,7 @@ export default function DashboardPage() {
           <section aria-label="SOS alert feed" className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">SOS Alert Feed</h2>
             {alerts.length === 0 ? (
-              <p className="text-sm text-gray-500 dark:text-gray-400 py-8 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400 py-8 text-center">
                 No active alerts. All clear.
               </p>
             ) : (
@@ -196,11 +196,11 @@ export default function DashboardPage() {
                       <span className="text-sm font-medium text-red-800 dark:text-red-200 capitalize">
                         {alert.type} Alert
                       </span>
-                      <span className="text-xs text-red-600 dark:text-red-400">
+                      <span className="text-xs text-red-700 dark:text-red-400">
                         {new Date(alert.timestamp).toLocaleTimeString()}
                       </span>
                     </div>
-                    <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                    <p className="text-xs text-red-700 dark:text-red-400 mt-1">
                       Zone: {alert.zone}
                     </p>
                   </li>
@@ -227,7 +227,7 @@ export default function DashboardPage() {
                 </div>
               ))
             ) : (
-              <p className="text-sm text-gray-500 dark:text-gray-400 py-4 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400 py-4 text-center">
                 All zones within normal capacity. No action needed.
               </p>
             )}
@@ -243,7 +243,7 @@ function MetricCard({ label, value, variant = 'normal' }: { label: string; value
   const borderClass = variant === 'danger' ? 'border-red-300 dark:border-red-800' : variant === 'warning' ? 'border-yellow-300 dark:border-yellow-800' : 'border-gray-200 dark:border-gray-700';
   return (
     <div className={`p-4 bg-white dark:bg-gray-900 rounded-lg border ${borderClass}`}>
-      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">{label}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wide">{label}</p>
       <p className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">{value}</p>
     </div>
   );

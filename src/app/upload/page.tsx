@@ -208,7 +208,7 @@ function UploadCard({
             accept=".json,.csv"
             onChange={handleFileChange}
             disabled={state.status === 'uploading'}
-            className="block w-full text-sm text-gray-500 dark:text-gray-400
+            className="block w-full text-sm text-gray-600 dark:text-gray-400
               file:mr-4 file:py-2 file:px-4
               file:rounded file:border-0
               file:text-sm file:font-medium
@@ -223,7 +223,7 @@ function UploadCard({
           {(state.status === 'success' || state.status === 'error') && (
             <button
               onClick={onReset}
-              className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 underline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2 rounded"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 underline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2 rounded"
               aria-label={`Reset ${title} upload`}
             >
               Reset

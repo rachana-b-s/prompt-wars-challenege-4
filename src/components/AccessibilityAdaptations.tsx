@@ -146,7 +146,7 @@ export function AmbientAudioDisplay({ audioInfo }: { audioInfo: AmbientAudioInfo
 
   return (
     <div aria-label="Ambient audio information" className="space-y-2">
-      <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+      <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
         Sound Environment
       </h3>
       <ul className="space-y-1.5" role="list">

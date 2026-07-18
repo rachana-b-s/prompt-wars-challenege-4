@@ -298,7 +298,7 @@ function MedicalPanel() {
           <p className="text-sm text-gray-700 dark:text-gray-300">
             {triageResult.reasoning}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+          <p className="text-xs text-gray-600 dark:text-gray-400 italic">
             {triageResult.disclaimer}
           </p>
         </div>
@@ -469,7 +469,7 @@ function LostChildPanel() {
           type="button"
           onClick={handleSubmit}
           disabled={!currentZone || status === 'sending'}
-          className="w-full py-2 rounded bg-orange-600 hover:bg-orange-700 disabled:bg-gray-400 text-white text-sm font-medium transition-colors"
+          className="w-full py-2 rounded bg-orange-800 hover:bg-orange-900 disabled:bg-gray-400 text-white text-sm font-medium transition-colors"
         >
           {status === 'sending' ? 'Submitting...' : 'Report Lost Child'}
         </button>
@@ -499,7 +499,7 @@ function LostChildPanel() {
           <p className="text-sm text-red-700 dark:text-red-400 font-medium">
             Submission failed. Please report to the nearest staff member directly.
           </p>
-          <p className="text-xs text-red-600 dark:text-red-500 mt-1">
+          <p className="text-xs text-red-700 dark:text-red-400 mt-1">
             Your location: <strong>{currentZone}</strong>
           </p>
         </div>
