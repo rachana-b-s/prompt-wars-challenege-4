@@ -1,131 +1,169 @@
 # Smart Stadium Fan Navigator
 
-AI-powered accessible navigation for FIFA World Cup 2026 stadiums. Real-time crowd density, accessibility-first routing, and GenAI-powered recommendations.
+AI-powered accessible navigation for FIFA World Cup 2026 stadiums.
 
-## Overview
+---
 
-The Smart Stadium Fan Navigator helps fans navigate large stadium venues with:
-- **A* pathfinding** with constraint-aware routing (accessibility, allegiance, crowd density)
-- **Google Gemini AI** for natural-language route explanations, facility recommendations, and medical triage
-- **Accessibility-first design** supporting 10 accessibility categories (wheelchair, blind, deaf, neurodivergent, pregnancy, child safety, and more)
-- **Real-time crowd density** visualization with color-coded overlays
-- **Emergency services** (SOS alerts, AED locator, lost child protocol, medical triage)
-- **Multilingual support** for 8 languages with culturally-adapted AI responses
+## Chosen Vertical
 
-## Tech Stack
+**Smart City / Sports & Entertainment** — An accessibility-first indoor navigation system for large stadium venues, helping fans with diverse needs (wheelchair users, blind/deaf fans, families with children, pregnant attendees, neurodivergent individuals) navigate safely and efficiently during live events.
 
-- **Framework**: Next.js 14+ (App Router)
-- **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS 4
-- **State Management**: Zustand with persist middleware
-- **Validation**: Zod schemas
-- **Testing**: Vitest + fast-check (property-based testing)
-- **AI**: Google Gemini 2.0 Flash via `@google/generative-ai`
-- **Deployment**: Vercel-ready
+---
+
+## Approach and Logic
+
+### Core Problem
+Navigating a 80,000+ capacity stadium during a live event is challenging for anyone, but especially for fans with accessibility needs, opposing team allegiances, or families with children. Existing solutions lack real-time crowd awareness, accessibility-first routing, and AI-powered contextual guidance.
+
+### Technical Approach
+
+1. **Graph-based pathfinding**: The stadium is modeled as a weighted directed graph (27 zones, 26 bidirectional edges). Each zone has attributes (allegiance, noise level, accessibility features, sensory triggers, crowd density). Each edge has physical properties (step-free, gradient, distance, width).
+
+2. **Constraint-aware A\* search**: The route engine uses A* with a constraint solver that applies a priority hierarchy:
+   - **Safety** (hard block): allegiance zone exclusion, child-unsafe zones → returns Infinity weight
+   - **Physical access** (hard block): step-free requirement, max gradient, max distance
+   - **Comfort** (soft penalty): crowd density (+3x for >80%), sensory triggers (+2.5x for quiet-preferring), noise avoidance
+
+3. **Weakest-link group routing**: When multiple fans travel together, their accessibility profiles are merged using a weakest-link strategy — the route must satisfy the most restrictive member's constraints.
+
+4. **GenAI integration (Gemini 2.0 Flash)**: Three API routes use Google Gemini for:
+   - Natural-language route explanations with quantitative data points
+   - Facility comparison recommendations
+   - Medical symptom triage with urgency classification
+   - All with 5-second timeouts and graceful fallback (app fully works without AI)
+
+5. **Property-based testing**: 26 formal correctness properties validated with fast-check, ensuring invariants hold for ALL inputs (not just example cases).
+
+---
+
+## How the Solution Works
+
+### User Flow
+1. Fan opens the app → sees an interactive SVG stadium map with color-coded zones
+2. Clicks a zone → "Set as my location" to establish position
+3. Selects a destination (map click, search, or facility "Navigate" button)
+4. Route computes instantly via client-side A* → path highlights on map with directional arrows
+5. Route tab shows distance, time, warnings, and AI explanation (loads async)
+6. Fan can configure accessibility profile, allegiance, language at any time — route recomputes automatically
+
+### Architecture
+```
+┌─────────────────────────────────────────────────────────┐
+│ Client (Next.js App Router)                             │
+├─────────────────────────────────────────────────────────┤
+│ SVG Map ←→ Zustand Stores ←→ A* Route Engine           │
+│    ↓              ↓              ↓                      │
+│ Zone Info    Fan Profile    Constraint Solver            │
+│ Panel        + Group        (mergeProfiles,             │
+│              Store          isZoneAllowed,               │
+│                             getEdgeWeight)               │
+├─────────────────────────────────────────────────────────┤
+│ API Routes (Server)                                     │
+│ /api/genai/reason  → Gemini → route explanation         │
+│ /api/genai/recommend → Gemini → facility comparison     │
+│ /api/genai/triage  → Gemini → medical guidance          │
+│ /api/upload        → Zod validation → store update      │
+│ /api/sos           → in-memory alert storage            │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Key Features
+| Feature | Implementation |
+|---------|---------------|
+| Accessible routing | 10 accessibility categories with category-specific constraints (pregnancy: restroom proximity, child: zone exclusion, blind: tactile preference) |
+| Real-time density | Color-coded overlay (green/yellow/red) with 60s staleness detection |
+| Emergency services | SOS with exponential backoff retry (1s→2s→4s), AED locator with SOS route, lost child protocol, medical triage via AI |
+| Data upload | JSON + CSV upload with Zod schema validation and referential integrity checks |
+| Multilingual | 8 languages with culturally-adapted AI tone (formal for Japanese, informal for Portuguese) |
+| Group navigation | Add members with individual profiles → auto-merged constraints → weakest-link routing |
+
+---
+
+## Assumptions Made
+
+1. **Synthetic data for demo**: The stadium layout (MetLife Stadium, FIFA World Cup 2026) uses synthetic zone/edge/facility data. In production, this would be replaced via the upload API with real venue data.
+2. **Client-side pathfinding**: With ~30 zones and ~26 edges, the graph is small enough for instant client-side A* computation. For larger venues (1000+ nodes), the engine would need server-side computation.
+3. **Crowd density is pre-loaded**: Density data is initialized from synthetic data and updated via the upload API. In production, this would connect to real-time sensors/IoT feeds.
+4. **GenAI is optional**: The app is fully functional without a Gemini API key. AI features gracefully degrade to algorithmic fallbacks.
+5. **Single environment variable**: Only `GEMINI_API_KEY` is needed for deployment. No database, no external services beyond Gemini.
+6. **Browser-based**: Designed as a web app (mobile-first responsive). No native app required.
+
+---
+
+## Evaluation Coverage
+
+### Code Quality
+- TypeScript strict mode throughout
+- Consistent functional patterns (pure functions for engine/services, hooks for React)
+- Barrel exports, clear module boundaries
+- Components follow single-responsibility principle
+- Zustand stores with persist middleware for session continuity
+
+### Security
+- Environment variables for API keys (never exposed to client)
+- Input validation via Zod schemas on all upload endpoints
+- No raw SQL/injection vectors (no database)
+- API routes validate request bodies before processing
+- GenAI responses are parsed and type-checked before use
+- SOS endpoint validates all required fields
+
+### Efficiency
+- Client-side A* with min-heap priority queue (O(E log V) — instant for 30 zones)
+- Zustand stores with `partialize` to minimize localStorage writes
+- Paginated facility results (4 per page — no DOM bloat)
+- GenAI calls are async and non-blocking (UI never waits for AI)
+- Route computation uses key-based deduplication (won't recompute for same source+destination pair)
+- BFS-based facility proximity uses lazy computation
+
+### Testing
+- **322 tests** across 20 test files
+- **26 property-based tests** (fast-check) validating formal correctness invariants
+- Unit tests for constraint solver, route engine, crowd monitor, facility registry
+- API route tests with mocked GenAI responses
+- Integration tests for the upload pipeline
+- Component tests for map rendering (Property 21: zone count matches graph)
+
+### Accessibility (WCAG 2.1 AA)
+- Semantic HTML landmarks (`<main>`, `<nav>`, `<aside>`, `<section>`)
+- Full ARIA implementation (tablist/tab/tabpanel, role="button", aria-label, aria-live)
+- Keyboard navigation (arrow keys for zones, Enter/Space to select, Tab between panels)
+- Screen-reader route output (`ScreenReaderRoute` component with step-by-step text)
+- Skip-to-content link
+- `prefers-reduced-motion` support (disables animations)
+- Color legend (information not conveyed by color alone)
+- Touch target compliance (40px+ interactive elements)
+- Visible focus indicators on all interactive elements
+- Error messages use `role="alert"` with `aria-live`
+
+---
 
 ## Quick Start
 
 ```bash
-# Install dependencies
 npm install
-
-# Set up environment (optional — app works without AI key)
-cp .env.local.example .env.local
-# Edit .env.local and add your GEMINI_API_KEY (get one at https://aistudio.google.com/apikey)
-
-# Run development server
-npm run dev
-
-# Open http://localhost:3000
+cp .env.local.example .env.local  # Optional: add GEMINI_API_KEY for AI features
+npm run dev                        # Open http://localhost:3000
 ```
 
-## Usage
-
-1. **Set your location** — Click any zone on the map → "Set as my location"
-2. **Set destination** — Click another zone → "Navigate here", or use the destination search in the Route tab
-3. **View route** — The path highlights on the map with blue arrows; the Route tab shows time, distance, and AI reasoning
-4. **Configure profile** — Profile tab lets you set accessibility needs, allegiance, language
-5. **Find facilities** — Facilities tab with filters for food, restrooms, medical, comfort amenities
-6. **Emergency** — Emergency tab for SOS, medical triage, AED locator, lost child reporting
-
-## Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router pages and API routes
-│   ├── api/genai/          # GenAI API routes (reason, recommend, triage)
-│   ├── api/upload/         # Stadium data upload API
-│   ├── api/sos/            # Emergency SOS API
-│   └── upload/             # Data upload page
-├── components/             # React components (map, panels, forms)
-├── engine/                 # A* route engine + constraint solver
-├── services/               # Service layer (crowd monitor, facility registry, GenAI client, SOS)
-├── stores/                 # Zustand stores (stadium, crowd, facility, fan, group, route)
-├── hooks/                  # React hooks (useAutoRoute, useProactiveWarnings)
-├── types/                  # TypeScript type definitions
-├── schemas/                # Zod validation schemas
-├── data/                   # Synthetic stadium and facility data
-└── i18n/                   # Internationalization (8 languages)
-```
-
-## Testing
+## Commands
 
 ```bash
-# Run all tests
-npm run test:run
-
-# Run tests in watch mode
-npm test
-
-# Run specific test file
-npx vitest run src/engine/route-engine.property.test.ts
+npm run dev        # Development server
+npm run build      # Production build
+npm run test:run   # Run all 322 tests
+npm test           # Tests in watch mode
+npm run lint       # ESLint
 ```
-
-The test suite includes:
-- **322 tests** across 20 test files
-- **26 property-based tests** (fast-check) validating formal correctness properties
-- Unit tests for constraint solver, route engine, services, and API routes
-- Integration tests for the upload pipeline
-
-## Key Correctness Properties
-
-The app is validated against 26 formal correctness properties including:
-- Route existence completeness (connected zones always find a path)
-- Wheelchair step-free constraint enforcement
-- Fan allegiance zone exclusion
-- Child safety zone exclusion
-- Density staleness detection (>60s threshold)
-- Facility filter conjunction correctness
-- SOS emergency route override (shortest path ignoring penalties)
-
-## Accessibility (WCAG 2.1 AA)
-
-- Semantic HTML landmarks (`<main>`, `<nav>`, `<aside>`)
-- ARIA roles/labels on all interactive elements
-- Keyboard navigation (arrow keys for map zones, tab for panels)
-- Screen-reader-optimized route descriptions
-- Skip-to-content link
-- `prefers-reduced-motion` support
-- Color legend (doesn't rely on color alone)
-- Touch target compliance (40px+ buttons)
 
 ## Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `GEMINI_API_KEY` | No | Google Gemini API key for AI features. App works without it (graceful fallback). |
+| `GEMINI_API_KEY` | No | Google Gemini API key. Get one free at https://aistudio.google.com/apikey. App works without it. |
 
 ## Deployment
 
-```bash
-# Build for production
-npm run build
-
-# Deploy to Vercel
-vercel deploy
-```
-
-The only required environment variable on Vercel is `GEMINI_API_KEY`. If not set, AI features show fallback messages but all other functionality works.
+Vercel-ready. Push to GitHub, connect to Vercel, add `GEMINI_API_KEY` env var. Single command: `vercel deploy`.
 
 ## License
 

@@ -209,10 +209,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   // Build the prompt
   const prompt = buildPrompt(reasonRequest);
 
-  // Set up 5-second timeout with AbortController
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
-
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
@@ -222,11 +218,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       },
     });
 
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-    }, { signal: controller.signal } as unknown as Record<string, unknown>);
+    // 5-second timeout using Promise.race
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error('Timeout: GenAI did not respond within 5 seconds')), 5000);
+    });
 
-    clearTimeout(timeoutId);
+    const generatePromise = model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    });
+
+    const result = await Promise.race([generatePromise, timeoutPromise]);
 
     const response = result.response;
     const text = response.text();
@@ -266,10 +267,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json(genAIResponse);
   } catch (error: unknown) {
-    clearTimeout(timeoutId);
-
-    // Check if it was an abort (timeout)
-    if (error instanceof Error && (error.name === 'AbortError' || error.message?.includes('abort'))) {
+    // Check if it was a timeout
+    if (error instanceof Error && error.message.includes('Timeout')) {
       return NextResponse.json(
         {
           error: 'Route explanation request timed out. The AI service did not respond within 5 seconds.',
@@ -278,10 +277,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Generic GenAI error
+    // Generic GenAI error — include details for debugging
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error('[GenAI Reason] Error:', errorMessage);
     return NextResponse.json(
       {
-        error: 'Failed to generate route explanation. Please try again later.',
+        error: `Failed to generate route explanation: ${errorMessage}`,
       },
       { status: 500 }
     );
