@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Stadium oval outline -->
+  <ellipse cx="16" cy="16" rx="14" ry="11" stroke="#3b82f6" stroke-width="2" fill="#1f2937"/>
+  <!-- Playing field -->
+  <rect x="9" y="11" width="14" height="10" rx="2" fill="#166534" stroke="#22c55e" stroke-width="0.8"/>
+  <!-- Center circle -->
+  <circle cx="16" cy="16" r="3" fill="none" stroke="#22c55e" stroke-width="0.6"/>
+  <!-- Halfway line -->
+  <line x1="16" y1="11" x2="16" y2="21" stroke="#22c55e" stroke-width="0.6"/>
+  <!-- Location pin -->
+  <circle cx="16" cy="8" r="2.5" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="16" cy="8" r="1" fill="#ffffff"/>
+</svg>

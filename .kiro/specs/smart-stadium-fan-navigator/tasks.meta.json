@@ -1,0 +1,717 @@
+{
+  "pbtResults": {
+    "4.2 Write property tests for constraint solver": {
+      "status": "passed",
+      "lastRunTimestamp": 1784383231984
+    },
+    "6.4 Write property tests for crowd monitor": {
+      "status": "passed",
+      "lastRunTimestamp": 1784383286907
+    },
+    "6.2 Write property tests for facility registry": {
+      "status": "passed",
+      "lastRunTimestamp": 1784385026060
+    },
+    "4.4 Write property tests for route engine": {
+      "status": "passed",
+      "lastRunTimestamp": 1784385402087
+    },
+    "4.6 Write property tests for accessibility routing": {
+      "status": "passed",
+      "lastRunTimestamp": 1784385626396
+    },
+    "7.3 Write property test for auto-route trigger": {
+      "status": "passed",
+      "lastRunTimestamp": 1784386187111
+    },
+    "8.3 Write property test for map rendering": {
+      "status": "passed",
+      "lastRunTimestamp": 1784386539947
+    },
+    "18.1 Write property test for data upload validation": {
+      "status": "passed",
+      "lastRunTimestamp": 1784389110988
+    }
+  },
+  "executionHistory": {
+    "1.1 Initialize Next.js 14+ project with TypeScript, Tailwind CSS, Zustand, Zod, and Vitest + fast-check": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218065
+      },
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374234118
+      },
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784375958978
+      }
+    ],
+    "1.2 Define core TypeScript types and interfaces": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218118
+      },
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784375969139
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645194
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378655255
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379481119
+      }
+    ],
+    "1.3 Create Zod validation schemas for data upload": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218158
+      },
+      {
+        "executionId": "07473f88-a307-4c09-9ff2-d08d9028e3f9",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784376081045
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645233
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379489896
+      },
+      {
+        "executionId": "58c6205c-ae47-4a20-9ee7-921ecaed61a2",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379672981
+      }
+    ],
+    "2.1 Create synthetic stadium data": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218186
+      },
+      {
+        "executionId": "07473f88-a307-4c09-9ff2-d08d9028e3f9",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784376081795
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645260
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379491298
+      }
+    ],
+    "2.2 Create synthetic facility data": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218226
+      },
+      {
+        "executionId": "07473f88-a307-4c09-9ff2-d08d9028e3f9",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784376082653
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645289
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379491632
+      },
+      {
+        "executionId": "58c6205c-ae47-4a20-9ee7-921ecaed61a2",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379674086
+      }
+    ],
+    "2.3 Create Zustand store for stadium graph and crowd data": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218250
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645316
+      }
+    ],
+    "3. Checkpoint - Ensure project builds and tests run": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218277
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645341
+      }
+    ],
+    "4.1 Implement constraint solver": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218308
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645367
+      }
+    ],
+    "4.2 Write property tests for constraint solver": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218340
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645393
+      }
+    ],
+    "4.3 Implement A* route engine": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218368
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645432
+      }
+    ],
+    "4.4 Write property tests for route engine": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218400
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645467
+      }
+    ],
+    "4.5 Implement accessibility-specific routing constraints": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218431
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645500
+      }
+    ],
+    "4.6 Write property tests for accessibility routing": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218465
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645527
+      }
+    ],
+    "5. Checkpoint - Ensure route engine tests pass": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218490
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645557
+      }
+    ],
+    "6.1 Implement facility registry service": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218515
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645584
+      }
+    ],
+    "6.2 Write property tests for facility registry": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218541
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645615
+      }
+    ],
+    "6.3 Implement crowd monitor service": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218567
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645639
+      }
+    ],
+    "6.4 Write property tests for crowd monitor": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218593
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645670
+      }
+    ],
+    "7.1 Create fan profile and group Zustand stores": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218618
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645708
+      }
+    ],
+    "7.2 Implement automatic route trigger logic": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218643
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645733
+      }
+    ],
+    "7.3 Write property test for auto-route trigger": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218669
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645760
+      }
+    ],
+    "8.1 Create SVG stadium map component": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218700
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645793
+      }
+    ],
+    "8.2 Implement map interaction and route display": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218732
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645819
+      }
+    ],
+    "8.3 Write property test for map rendering": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218758
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645844
+      }
+    ],
+    "9.1 Create GenAI API route for route explanation": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218783
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645876
+      }
+    ],
+    "9.2 Create GenAI API route for facility recommendation": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218806
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645909
+      }
+    ],
+    "9.3 Create GenAI API route for medical triage": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218832
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645941
+      }
+    ],
+    "9.4 Implement GenAI client-side service with fallback": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218856
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645967
+      }
+    ],
+    "10.1 Create main page layout with navigation panels": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218877
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378645993
+      }
+    ],
+    "10.2 Create profile setup component": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218902
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646017
+      }
+    ],
+    "10.3 Create group manager component": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218929
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646044
+      }
+    ],
+    "10.4 Create route panel with GenAI reasoning display": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218952
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646067
+      }
+    ],
+    "10.5 Create destination selector and search": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374218977
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646092
+      }
+    ],
+    "10.6 Create facility finder component": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219000
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646118
+      }
+    ],
+    "10.7 Create emergency panel (SOS + medical + lost child)": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219024
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646149
+      }
+    ],
+    "11.1 Create upload API route with validation": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219048
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646173
+      }
+    ],
+    "11.2 Create upload page UI": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219073
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646199
+      }
+    ],
+    "12.1 Create SOS API route": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219099
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646225
+      }
+    ],
+    "12.2 Implement client-side SOS service with retry": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219123
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646252
+      }
+    ],
+    "13.1 Create language selector and i18n infrastructure": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219147
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646281
+      }
+    ],
+    "14.1 Implement deaf/HoH UI adaptations": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219173
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646309
+      }
+    ],
+    "14.2 Implement blind/low-vision UI adaptations": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219198
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646335
+      }
+    ],
+    "14.3 Implement neurodivergent and child-friendly UI": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219223
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646366
+      }
+    ],
+    "15.1 Implement proactive GenAI warnings": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219248
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646391
+      }
+    ],
+    "16.1 Implement global error handling": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219276
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646419
+      }
+    ],
+    "17. Checkpoint - Full integration verification": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219302
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646452
+      }
+    ],
+    "18.1 Write property test for data upload validation": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219327
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646501
+      }
+    ],
+    "18.2 Write integration tests for upload pipeline": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219351
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646532
+      }
+    ],
+    "19.1 Wire all components together on main page": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219376
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646556
+      }
+    ],
+    "19.2 Configure Vercel deployment": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219402
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646582
+      }
+    ],
+    "20. Final checkpoint - Ensure all tests pass and app builds": [
+      {
+        "executionId": "c00f3450-7102-4885-bafb-e9e9dc23289a",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784374219431
+      },
+      {
+        "executionId": "6964f3fc-f6e2-4794-acc1-65e15705da19",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784378646607
+      }
+    ],
+    "1. Set up project structure, core types, and configuration": [
+      {
+        "executionId": "58c6205c-ae47-4a20-9ee7-921ecaed61a2",
+        "chatSessionId": "sess_3b67557c-131f-4e5f-ab6c-5dd0efa34fa8",
+        "timestamp": 1784379673029
+      }
+    ]
+  }
+}
